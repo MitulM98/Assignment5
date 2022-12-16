@@ -10,6 +10,19 @@ const PORT = 9999;
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const app = express();
+
+const DB = 'mongodb+srv://Mitul:mmitul@cluster0.hlqyzwd.mongodb.net/MyData?retryWrites=true&w=majority';
+
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}).then(() => {
+    console.log(`connection successful`);
+}).catch((err) => console.log(`no connection`));
+
+
 app.use(express.static('static'))
 //database connection
 const nodemailer = require("nodemailer");
